@@ -2,12 +2,12 @@ import React, { ReactElement } from 'react'
 
 interface Props {}
 
-function view({}: Props): ReactElement {
+function Colleges({}: Props): ReactElement {
   return (
     <div>
-      <h1>test view</h1>
+      <h1>colleges</h1>
     </div>
   )
 }
 
-export default view
+export default Colleges

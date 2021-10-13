@@ -4,6 +4,9 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 import { MONGODB_URI } from './util/secrets'
 
+import collegeRouter from './routers/CollegeRouter'
+import studentRouter from './routers/StudentRouter'
+
 const app = express()
 
 mongoose
@@ -15,7 +18,7 @@ mongoose
     console.log(
       `MongoDB connection error. Please make sure MongoDB is running. ${err}`,
     )
-    // process.exit();
+    process.exit(1)
   })
 
 app.set('port', process.env.PORT || 3001)
@@ -24,8 +27,7 @@ app.use(compression())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/hello', (req: Request, res: Response): void => {
-  res.status(200).send('hello world! this is working sheeeeesh')
-})
+app.use('/college/', collegeRouter)
+app.use('/student/', studentRouter)
 
 export default app
