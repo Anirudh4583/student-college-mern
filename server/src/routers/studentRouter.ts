@@ -1,9 +1,10 @@
 import express from 'express'
-// import studentController from '../controllers/studentController'
+import * as studentController from '../controllers/studentController'
 
 var studentRouter = express.Router()
 
-// router.get('/', StudentController.)
+studentRouter.post('/', studentController.getAll)
+studentRouter.post('/from-college', studentController.getFromCollege)
 // router.get('/', StudentController.)
 
 export default studentRouter

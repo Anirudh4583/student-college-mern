@@ -4,7 +4,11 @@ import { Container } from 'react-bootstrap'
 // import { Collapse, Fade } from 'react-bootstrap'
 import StudentTable from '../components/StudentTable'
 
-function Students(): ReactElement {
+type props = {
+  collegeId: number
+}
+
+function FromCollegeStudents({ collegeId }: props): ReactElement {
   type resType = {
     id: number
     Name: string
@@ -16,15 +20,19 @@ function Students(): ReactElement {
   const [students, setStudents] = useState<resType[]>()
 
   useEffect(() => {
-    axios.post<resType[]>('http://localhost:3001/student/').then((res) => {
-      console.log('getAll students api response 🚀', res)
-      setStudents(res.data)
-    })
-  }, [])
+    axios
+      .post<resType[]>('http://localhost:3001/student/from-college', {
+        collegeId: collegeId,
+      })
+      .then((res) => {
+        console.log('getAll api response 🚀', res)
+        setStudents(res.data)
+      })
+  }, [collegeId])
   return (
     <>
       <Container fluid className="p-3">
-        <div className=" h3">All Students (100 out of 10000)</div>
+        <div className=" h3">All Colleges</div>
 
         {students && <StudentTable students={students} />}
       </Container>
@@ -32,4 +40,4 @@ function Students(): ReactElement {
   )
 }
 
-export default Students
+export default FromCollegeStudents

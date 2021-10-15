@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 export type StudentDoc = mongoose.Document & {
-  Id: number
+  id: number
   Name: string
   Batch: number
   CollegeId: mongoose.Schema.Types.ObjectId
@@ -10,7 +10,7 @@ export type StudentDoc = mongoose.Document & {
 
 const studentSchema = new mongoose.Schema<StudentDoc>(
   {
-    Id: { type: Number, required: true },
+    id: { type: Number, required: true },
     Name: { type: String, required: true },
     Batch: { type: Number, required: true },
     CollegeId: {

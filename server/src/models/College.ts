@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 export type CollegeDoc = mongoose.Document & {
-  Id: number
+  id: number
   Name: string
   YearFounded: number
   City: string
@@ -13,7 +13,7 @@ export type CollegeDoc = mongoose.Document & {
 
 const collegeSchema = new mongoose.Schema<CollegeDoc>(
   {
-    Id: { type: Number, required: true },
+    id: { type: Number, required: true },
     Name: { type: String, required: true, unique: true },
     YearFounded: { type: Number, required: true },
     City: { type: String, required: true },
