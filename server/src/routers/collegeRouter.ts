@@ -1,5 +1,5 @@
 import express from 'express'
-import * as CollegeController from '../controllers/CollegeController.'
+import * as CollegeController from '../controllers/collegeController.'
 
 var collegeRouter = express.Router()
 

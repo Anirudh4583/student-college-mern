@@ -28,9 +28,12 @@ function CourseColleges(): ReactElement {
 
   useEffect(() => {
     axios
-      .post<resType[]>('http://localhost:3001/college/course', {
-        Courses: params.Courses,
-      })
+      .post<resType[]>(
+        'https://college-student-server.herokuapp.com/college/course',
+        {
+          Courses: params.Courses,
+        },
+      )
       .then((res) => {
         console.log(res)
         setColleges(res.data)

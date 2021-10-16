@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express'
 import { NativeError } from 'mongoose'
-import { College, CollegeDoc } from '../models/college'
+import { College, CollegeDoc } from '../models/College'
 
 export const getAll = (
   req: Request,
@@ -54,7 +54,7 @@ export const getGroupState = (
   next: NextFunction,
 ): void => {
   let docs = College.aggregate(
-    [{ $group: { _id: '$State', count: { $count: {} } } }],
+    [{ $group: { _id: '$State', count: { $sum: 1 } } }],
     (error: NativeError, data: CollegeDoc) => {
       if (error) return next(error)
 
@@ -75,7 +75,7 @@ export const getGroupCourse = (
   next: NextFunction,
 ): void => {
   let docs = College.aggregate(
-    [{ $group: { _id: '$Courses', count: { $count: {} } } }],
+    [{ $group: { _id: '$Courses', count: { $sum: 1 } } }],
     (error: NativeError, data: CollegeDoc) => {
       if (error) return next(error)
 

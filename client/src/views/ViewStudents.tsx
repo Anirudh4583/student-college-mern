@@ -23,9 +23,12 @@ function ViewStudents(): ReactElement {
 
   useEffect(() => {
     axios
-      .post<resType[]>('http://localhost:3001/student/from-college', {
-        collegeId: params.collegeId,
-      })
+      .post<resType[]>(
+        'https://college-student-server.herokuapp.com/student/from-college',
+        {
+          collegeId: params.collegeId,
+        },
+      )
       .then((res) => {
         console.log('get students from college api response 🚀', res)
         setStudents(res.data)

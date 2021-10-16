@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getByCourse = exports.getByState = exports.getGroupCourse = exports.getGroupState = exports.getSimilar = exports.getAll = void 0;
-const college_1 = require("../models/college");
+const College_1 = require("../models/College");
 const getAll = (req, res, next) => {
-    college_1.College.find((error, data) => {
+    College_1.College.find((error, data) => {
         if (error)
             return next(error);
         return res.json(data);
@@ -13,10 +13,10 @@ exports.getAll = getAll;
 const getSimilar = (req, res, next) => {
     const { collegeId } = req.body;
     // console.log(collegeId)
-    college_1.College.findOne({ id: collegeId }, (error, data) => {
+    College_1.College.findOne({ id: collegeId }, (error, data) => {
         if (error)
             return next(error);
-        college_1.College.find({
+        College_1.College.find({
             id: { $ne: collegeId },
             State: data.State,
             Courses: data.Courses,
@@ -34,7 +34,7 @@ const getSimilar = (req, res, next) => {
 };
 exports.getSimilar = getSimilar;
 const getGroupState = (req, res, next) => {
-    let docs = college_1.College.aggregate([{ $group: { _id: '$State', count: { $count: {} } } }], (error, data) => {
+    let docs = College_1.College.aggregate([{ $group: { _id: '$State', count: { $count: {} } } }], (error, data) => {
         if (error)
             return next(error);
         // console.log('data', data)
@@ -46,7 +46,7 @@ const getGroupState = (req, res, next) => {
 };
 exports.getGroupState = getGroupState;
 const getGroupCourse = (req, res, next) => {
-    let docs = college_1.College.aggregate([{ $group: { _id: '$Courses', count: { $count: {} } } }], (error, data) => {
+    let docs = College_1.College.aggregate([{ $group: { _id: '$Courses', count: { $count: {} } } }], (error, data) => {
         if (error)
             return next(error);
         // console.log('data', data)
@@ -59,7 +59,7 @@ const getGroupCourse = (req, res, next) => {
 exports.getGroupCourse = getGroupCourse;
 const getByState = (req, res, next) => {
     const { State } = req.body;
-    college_1.College.find({
+    College_1.College.find({
         State: State,
     }, (error, data) => {
         if (error)
@@ -71,7 +71,7 @@ const getByState = (req, res, next) => {
 exports.getByState = getByState;
 const getByCourse = (req, res, next) => {
     const { Courses } = req.body;
-    college_1.College.find({
+    College_1.College.find({
         Courses: Courses,
     }, (error, data) => {
         if (error)
@@ -81,4 +81,4 @@ const getByCourse = (req, res, next) => {
     });
 };
 exports.getByCourse = getByCourse;
-//# sourceMappingURL=CollegeController..js.map
+//# sourceMappingURL=collegeController..js.map

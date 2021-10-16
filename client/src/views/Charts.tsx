@@ -16,14 +16,18 @@ function Charts(): ReactElement {
 
   useEffect(() => {
     axios
-      .get<resType[]>('http://localhost:3001/college/group-states')
+      .get<resType[]>(
+        'https://college-student-server.herokuapp.com/college/group-states',
+      )
       .then((res) => {
         console.log('get clg states api response 🚀', res)
         setStates(res.data)
       })
 
     axios
-      .get<resType[]>('http://localhost:3001/college/group-courses')
+      .get<resType[]>(
+        'https://college-student-server.herokuapp.com/college/group-courses',
+      )
       .then((res) => {
         console.log('get clg courses api response 🚀', res)
         setCourses(res.data)

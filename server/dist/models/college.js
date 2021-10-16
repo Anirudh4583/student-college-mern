@@ -18,4 +18,4 @@ const collegeSchema = new mongoose_1.default.Schema({
     collection: 'colleges',
 });
 exports.College = mongoose_1.default.model('College', collegeSchema);
-//# sourceMappingURL=college.js.map
+//# sourceMappingURL=College.js.map

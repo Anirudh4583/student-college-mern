@@ -4,8 +4,8 @@ import cors from 'cors'
 import mongoose from 'mongoose'
 import { MONGODB_URI } from './util/secrets'
 
-import collegeRouter from './routers/CollegeRouter'
-import studentRouter from './routers/StudentRouter'
+import collegeRouter from './routers/collegeRouter'
+import studentRouter from './routers/studentRouter'
 
 const app = express()
 

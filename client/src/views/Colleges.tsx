@@ -19,10 +19,12 @@ function Colleges(): ReactElement {
   const [colleges, setColleges] = useState<resType[]>()
 
   useEffect(() => {
-    axios.get<resType[]>('http://localhost:3001/college/').then((res) => {
-      console.log('getAll api response 🚀', res)
-      setColleges(res.data)
-    })
+    axios
+      .get<resType[]>('https://college-student-server.herokuapp.com/college/')
+      .then((res) => {
+        console.log('getAll api response 🚀', res)
+        setColleges(res.data)
+      })
     console.info(
       '%cTIP: take a look @ similar colleges of #05 to experience no data',
       'color: red; font-size: 20px;',

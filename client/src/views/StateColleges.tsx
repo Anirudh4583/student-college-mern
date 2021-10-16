@@ -28,9 +28,12 @@ function StateColleges(): ReactElement {
 
   useEffect(() => {
     axios
-      .post<resType[]>('http://localhost:3001/college/state', {
-        State: params.State,
-      })
+      .post<resType[]>(
+        'https://college-student-server.herokuapp.com/college/state',
+        {
+          State: params.State,
+        },
+      )
       .then((res) => {
         console.log(res)
         setColleges(res.data)

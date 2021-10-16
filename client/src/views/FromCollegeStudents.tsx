@@ -21,9 +21,12 @@ function FromCollegeStudents({ collegeId }: props): ReactElement {
 
   useEffect(() => {
     axios
-      .post<resType[]>('http://localhost:3001/student/from-college', {
-        collegeId: collegeId,
-      })
+      .post<resType[]>(
+        'https://college-student-server.herokuapp.com/student/from-college',
+        {
+          collegeId: collegeId,
+        },
+      )
       .then((res) => {
         console.log('getAll api response 🚀', res)
         setStudents(res.data)

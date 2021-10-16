@@ -8,8 +8,8 @@ const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const secrets_1 = require("./util/secrets");
-const CollegeRouter_1 = __importDefault(require("./routers/CollegeRouter"));
-const StudentRouter_1 = __importDefault(require("./routers/StudentRouter"));
+const collegeRouter_1 = __importDefault(require("./routers/collegeRouter"));
+const studentRouter_1 = __importDefault(require("./routers/studentRouter"));
 const app = (0, express_1.default)();
 mongoose_1.default
     .connect(secrets_1.MONGODB_URI)
@@ -25,7 +25,7 @@ app.use((0, cors_1.default)());
 app.use((0, compression_1.default)());
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
-app.use('/college/', CollegeRouter_1.default);
-app.use('/student/', StudentRouter_1.default);
+app.use('/college/', collegeRouter_1.default);
+app.use('/student/', studentRouter_1.default);
 exports.default = app;
 //# sourceMappingURL=app.js.map

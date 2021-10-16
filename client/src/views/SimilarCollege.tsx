@@ -28,9 +28,12 @@ function SimilarCollege(): ReactElement {
 
   useEffect(() => {
     axios
-      .post<resType[]>('http://localhost:3001/college/similar', {
-        collegeId: params.collegeId,
-      })
+      .post<resType[]>(
+        'https://college-student-server.herokuapp.com/college/similar',
+        {
+          collegeId: params.collegeId,
+        },
+      )
       .then((res) => {
         console.log(res)
         setColleges(res.data)

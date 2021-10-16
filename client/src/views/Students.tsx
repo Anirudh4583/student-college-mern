@@ -16,10 +16,12 @@ function Students(): ReactElement {
   const [students, setStudents] = useState<resType[]>()
 
   useEffect(() => {
-    axios.post<resType[]>('http://localhost:3001/student/').then((res) => {
-      console.log('getAll students api response 🚀', res)
-      setStudents(res.data)
-    })
+    axios
+      .post<resType[]>('https://college-student-server.herokuapp.com/student/')
+      .then((res) => {
+        console.log('getAll students api response 🚀', res)
+        setStudents(res.data)
+      })
   }, [])
   return (
     <>

@@ -29,4 +29,4 @@ studentRouter.post('/', studentController.getAll);
 studentRouter.post('/from-college', studentController.getFromCollege);
 // router.get('/', StudentController.)
 exports.default = studentRouter;
-//# sourceMappingURL=StudentRouter.js.map
+//# sourceMappingURL=studentRouter.js.map
