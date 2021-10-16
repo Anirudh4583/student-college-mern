@@ -29,8 +29,8 @@ export const getFromCollege = (
     (error: NativeError, data: StudentDoc) => {
       if (error) return next(error)
 
-      console.log('students of college 🤘', data)
-      // return res.json(data)
+      // console.log('students of college 🤘', data)
+      return res.json(data)
     },
   )
 

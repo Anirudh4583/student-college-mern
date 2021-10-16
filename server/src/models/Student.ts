@@ -4,7 +4,7 @@ export type StudentDoc = mongoose.Document & {
   id: number
   Name: string
   Batch: number
-  CollegeId: mongoose.Schema.Types.ObjectId
+  CollegeId: number
   Skills: string
 }
 
@@ -14,7 +14,7 @@ const studentSchema = new mongoose.Schema<StudentDoc>(
     Name: { type: String, required: true },
     Batch: { type: Number, required: true },
     CollegeId: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Number,
       ref: 'College',
       required: true,
     },

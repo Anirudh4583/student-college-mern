@@ -87,7 +87,13 @@ function CollegeRow({
           <Button variant="secondary" onClick={handleClose}>
             Back
           </Button>
-          {location.pathname === '/colleges/all' && (
+          <Button
+            variant="success"
+            onClick={() => history.push(`/students/view/${Id}`)}
+          >
+            View Students
+          </Button>
+          {!location.pathname.match('/colleges/similar/*') && (
             <Button variant="primary" onClick={handleSimilar}>
               Explore Similar
             </Button>

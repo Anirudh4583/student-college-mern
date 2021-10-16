@@ -36,7 +36,7 @@ function CollegeTable({ students }: Props): ReactElement {
 
       <thead>
         <tr>
-          <th>#</th>
+          {/* <th>#</th> */}
           <th>Student Name</th>
           <th>Batch</th>
           <th>College ID</th>

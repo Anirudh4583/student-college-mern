@@ -7,6 +7,9 @@ import { Navbar, Container, Nav } from 'react-bootstrap'
 import SimilarCollege from './views/SimilarCollege'
 import logo from './assets/colstud.png'
 import Charts from './views/Charts'
+import StateColleges from './views/StateColleges'
+import CourseColleges from './views/CourseColleges'
+import ViewStudents from './views/ViewStudents'
 
 function App() {
   return (
@@ -66,8 +69,12 @@ function App() {
           />
 
           <Route path="/students/all" component={Students} />
+          <Route path="/students/view/:collegeId" component={ViewStudents} />
 
           <Route path="/colleges/charts" component={Charts} />
+
+          <Route path="/colleges/state/:State" component={StateColleges} />
+          <Route path="/colleges/course/:Courses" component={CourseColleges} />
         </Switch>
       </BrowserRouter>
     </>

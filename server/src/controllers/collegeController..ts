@@ -21,7 +21,7 @@ export const getSimilar = (
 ): void => {
   const { collegeId } = req.body
 
-  console.log(collegeId)
+  // console.log(collegeId)
 
   College.findOne({ id: collegeId }, (error: NativeError, data: CollegeDoc) => {
     if (error) return next(error)
@@ -86,6 +86,46 @@ export const getGroupCourse = (
       newData = JSON.parse(newData)
 
       return res.json(newData)
+    },
+  )
+}
+
+export const getByState = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): void => {
+  const { State } = req.body
+
+  College.find(
+    {
+      State: State,
+    },
+    (error: NativeError, data: CollegeDoc) => {
+      if (error) return next(error)
+
+      // console.log('states colleges 🤘', data)
+      return res.json(data)
+    },
+  )
+}
+
+export const getByCourse = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): void => {
+  const { Courses } = req.body
+
+  College.find(
+    {
+      Courses: Courses,
+    },
+    (error: NativeError, data: CollegeDoc) => {
+      if (error) return next(error)
+
+      console.log('courses colleges 🤘', data)
+      return res.json(data)
     },
   )
 }

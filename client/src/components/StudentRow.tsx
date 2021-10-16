@@ -42,7 +42,7 @@ function StudentRow({
     //   </Card>
     // </Col>
     <tr key={id}>
-      <td>{id}</td>
+      {/* <td>{id}</td> */}
       <td>{Name}</td>
       <td>{Batch}</td>
       <td>{CollegeId}</td>
